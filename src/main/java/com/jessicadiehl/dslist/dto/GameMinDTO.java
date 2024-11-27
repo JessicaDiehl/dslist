@@ -1,6 +1,7 @@
 package com.jessicadiehl.dslist.dto;
 
 import com.jessicadiehl.dslist.entities.Game;
+import com.jessicadiehl.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -16,6 +17,15 @@ public class GameMinDTO {
         this.year = entity.getYear();
         this.imgUrl = entity.getImgUrl();
         this.shortDescription = entity.getShortDescription();
+    }
+
+    //construtor para converter projection para DTO
+    public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getGameYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 
     public Long getId() {
